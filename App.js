@@ -93,7 +93,7 @@ yargs.command({
 
 yargs.command({
     command: "delete",
-    describe: "Delete todo",
+    describe: "Delete todo by id",
     builder: {
         idNumber: {
             describe: "Number",
@@ -106,6 +106,30 @@ yargs.command({
         let data = loadData();
         let newData = data.filter(item => {
             if (item.id !== idNumber) {
+                console.log(item);
+                return true;
+            } else return false;
+        } );
+        saveData(newData);
+    }
+})
+
+yargs.command({
+    command: "delete-completed",
+    describe: "Delete todo by status",
+    builder: {
+        status: {
+            describe: "Status of your todo",
+            demandOption: false,
+            type: "boolean",
+            alias: "s",
+            default: true
+        }
+    },
+    handler: function ({ status }) {
+        let data = loadData();
+        let newData = data.filter(item => {
+            if (item.status !== true) {
                 console.log(item);
                 return true;
             } else return false;

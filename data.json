@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "todo": "Take a look to the next lesson",
+        "status": false
+    },
+    {
+        "id": 3,
+        "todo": "Have dinner",
+        "status": false
+    },
+    {
+        "id": 4,
+        "todo": "Play dota 2",
+        "status": false
+    }
+]
