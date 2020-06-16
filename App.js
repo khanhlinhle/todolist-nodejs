@@ -158,7 +158,7 @@ yargs.command({
     handler: function ({ status }) {
         let data = loadData();
         let newData = data.filter(item => {
-            if (item.status !== true) {
+            if (item.status !== status) {
                 console.log(item);
                 return true;
             } else return false;
