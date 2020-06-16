@@ -63,7 +63,7 @@ yargs.command({
         data.forEach(({ todo, status }, idx) => console.log(`
             idx: ${idx} 
             todo: ${todo} 
-            status: ${status}`
+            status:` + chalk.yellow(`${status}`)
         ));
     }
 })
@@ -88,6 +88,35 @@ yargs.command({
     },
     handler: function ({ todo, status }) {
         addTodo(todo, status);
+    }
+})
+
+yargs.command({
+    command: "toggle-status",
+    describe: "Change the status",
+    builder: {
+        idNumber: {
+            describe: "Number",
+            demandOption: false,
+            type: "number",
+            alias: "no",
+        },
+        status: {
+            describe: "Status of your todo",
+            demandOption: false,
+            type: "boolean",
+            alias: "s",
+        }
+    },
+    handler: function ({ idNumber, status }) {
+        let data = loadData();
+        let newData = data.map(item => {
+            if (item.id == idNumber) {
+                item.status = status
+            };
+            return item;
+        } );
+        saveData(newData);
     }
 })
 

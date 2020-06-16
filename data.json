@@ -5,13 +5,18 @@
         "status": false
     },
     {
-        "id": 3,
-        "todo": "Have dinner",
+        "id": 2,
+        "todo": "Play dota 2",
         "status": false
     },
     {
+        "id": 3,
+        "todo": "Have dinner",
+        "status": true
+    },
+    {
         "id": 4,
-        "todo": "Play dota 2",
+        "todo": "Do homework",
         "status": false
     }
 ]
